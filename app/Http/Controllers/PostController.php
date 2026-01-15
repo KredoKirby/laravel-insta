@@ -42,14 +42,14 @@ class PostController extends Controller
         $this->post->user_id        = Auth::user()->id;
         $this->post->save();
 
-        # 3. Save the categories to the category_post table
-        foreach ($request->category as $category_id) {
-            $category_post[] = ['category_id' => $category_id];
-        }
-        $this->post->categoryPost()->createMany($category_post);
+        // # 3. Save the categories to the category_post table
+        // foreach ($request->category as $category_id) {
+        //     $category_post[] = ['category_id' => $category_id];
+        // }
+        // $this->post->categoryPost()->createMany($category_post);
 
         # 4. Go back to homepage. Update this later.
-        // return redirect()->route('index');
+        return redirect()->route('index');
     }
 
     # To open Show Post page
